@@ -13,11 +13,16 @@ public class FlightController : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] private GameObject cockPitCamera;
+    [SerializeField] private AudioSource mainAudioSource;
+    [SerializeField] private AudioSource flightAudioSource;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject vCam5; 
     private int i; 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        mainCamera = GetComponent<Camera>(); 
     }
 
     private void Update()
@@ -26,13 +31,30 @@ public class FlightController : MonoBehaviour
         {
             i += 1; 
             cockPitCamera.SetActive(true);
+            mainAudioSource.Stop();
+            flightAudioSource.Play(); 
             i = 1; 
         }
         else if(Input.GetKeyDown(KeyCode.R) && i >= 1)
         {
             i -= 1; 
             cockPitCamera.SetActive(false);
+            mainAudioSource.Play();
+            flightAudioSource.Stop();
             i = 0; 
+        }
+
+        if (!vCam5.activeInHierarchy)
+        {
+            bool cameraActive = true;
+            if (cameraActive == true && vCam5 == null || cameraActive == true && vCam5.active.Equals(true))
+            {
+                cameraActive = false;
+                if (cameraActive == false)
+                {
+                    mainCamera.transform.LookAt(gameObject.transform.position);
+                }
+            }
         }
     }
 
