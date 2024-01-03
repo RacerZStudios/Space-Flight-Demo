@@ -175,7 +175,7 @@ MonoBehaviour:
     min: 1
   enableVolumetricFog:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   albedo:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0, b: 0.9132972, a: 1}
