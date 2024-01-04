@@ -17,7 +17,7 @@ public class LookWithMouse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -45,6 +45,15 @@ public class LookWithMouse : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 #endif
+
+        if(Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(1))
+        {     
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

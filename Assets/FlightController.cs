@@ -16,7 +16,8 @@ public class FlightController : MonoBehaviour
     [SerializeField] private AudioSource mainAudioSource;
     [SerializeField] private AudioSource flightAudioSource;
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private GameObject vCam5; 
+    [SerializeField] private GameObject vCam5;
+    [SerializeField] private GameObject vCam6; 
     private int i; 
 
     private void Start()

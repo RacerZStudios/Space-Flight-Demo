@@ -14,7 +14,7 @@ public class LookAtCamera : MonoBehaviour
         {
             if (_camera != null || myTransform != null)
             {
-                _camera.transform.LookAt(myTransform);
+              //  _camera.transform.LookAt(myTransform);
                 _camera.gameObject.transform.position = followPos.position;
             }
         }
