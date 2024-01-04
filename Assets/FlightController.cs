@@ -28,7 +28,22 @@ public class FlightController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && i <= 0)
+        if(Input.GetKeyDown(KeyCode.M) && i <= 0)
+        {
+            i -= 1;
+            mainAudioSource.volume = 0;
+            flightAudioSource.volume = 0;
+            i = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.M) && i >= 1)
+        {
+            i -= 1;
+            mainAudioSource.volume = 1;
+            flightAudioSource.volume = 1;
+            i = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && i <= 0)
         {
             i += 1; 
             cockPitCamera.SetActive(true);
